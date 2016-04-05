@@ -5,5 +5,5 @@ export default function routes($stateProvider) {
       template: require('./github.html'),
       controller: 'GitHubController',
       controllerAs: 'github'
-    });
+    })
 }
