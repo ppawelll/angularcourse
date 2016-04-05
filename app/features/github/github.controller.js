@@ -11,6 +11,7 @@ export default class GitHubController {
   }
   
   assignToScope(response){
-    this.email = response.data.email;
+    this.User = response.data;
+    console.log(this.User)
   }
 }
