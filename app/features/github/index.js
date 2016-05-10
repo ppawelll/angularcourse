@@ -1,5 +1,7 @@
 import angular from 'angular';
 import uirouter from 'angular-ui-router';
+import firebase from 'firebase';
+import angularFire from 'angularfire';
 
 // Import routing for this module
 import routing from './github.routes';
@@ -15,7 +17,7 @@ import githubUser from './directives/github_user';
 import userRepos from './directives/user_repos';
 import userInput from './directives/user_input';
 
-export default angular.module('app.github', [uirouter])
+export default angular.module('app.github', [uirouter, angularFire])
   .config(routing)
   .controller('GitHubController', GitHubController)
   .service('GitHubService', GitHubService)
