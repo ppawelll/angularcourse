@@ -1,10 +1,12 @@
 export default class GitHubController {
-  constructor(GitHubService) {
+  constructor(GitHubService, $stateParams) {
     
-    GitHubService.getUser('bslipek')
+    this.selectedUser = $stateParams.user
+    
+    GitHubService.getUser(this.selectedUser)
       .then(this.handleGetUserSuccess.bind(this));
     
-    GitHubService.getRepos('bslipek')
+    GitHubService.getRepos(this.selectedUser)
       .then(this.handleGetReposSuccess.bind(this));
       
   }
