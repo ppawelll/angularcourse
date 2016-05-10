@@ -1,24 +1,17 @@
 export default class GitHubController {
-  constructor($http) {
-    this.$http = $http;
+  constructor(GitHubService) {
     
-    this.getUser();
-    this.getRepos();
-  }
-  
-  getUser() {
-    this.$http.get('https://api.github.com/users/bslipek')
+    GitHubService.getUser('bslipek')
       .then(this.handleGetUserSuccess.bind(this));
+    
+    GitHubService.getRepos('bslipek')
+      .then(this.handleGetReposSuccess.bind(this));
+      
   }
   
   handleGetUserSuccess(response) {
     this.User = response.data;
     console.log(this.User);
-  }
-  
-  getRepos() {
-    this.$http.get('https://api.github.com/users/bslipek/repos')
-      .then(this.handleGetReposSuccess.bind(this));
   }
   
   handleGetReposSuccess(response) {
