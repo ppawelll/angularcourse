@@ -1,13 +1,14 @@
 class githubNotesCtrl {
-    contructor($firebaseArray){
-        console.log('cos')
+    constructor($firebaseArray){
       let ref = new Firebase("https://geoinformatyka.firebaseio.com/bslipek");
       this.notes = $firebaseArray(ref);
+      console.log(this.notes)
     }
 }
 
 let template = 
 `
+
 <div class="col-md-4">
   <table class="table">
     <tr ng-repeat="note in $ctrl.notes">
@@ -18,8 +19,9 @@ let template =
 `
 
 let githubNotes = {
-    controller: githubNotesCtrl,
-    template: template
+    template: template,
+    controller: githubNotesCtrl
+    
 }
 
 export default githubNotes;
