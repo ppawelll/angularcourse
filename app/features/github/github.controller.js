@@ -1,6 +1,6 @@
 /*global Firebase */
 export default class GitHubController {
-  constructor(GitHubService, $stateParams, $firebaseArray) {
+  constructor(GitHubService, $stateParams) {
     
     this.selectedUser = $stateParams.user
     
@@ -10,9 +10,6 @@ export default class GitHubController {
     GitHubService.getRepos(this.selectedUser)
       .then(this.handleGetReposSuccess.bind(this));
       
-    let ref = new Firebase("https://geoinformatyka.firebaseio.com/items");
-    this.items = $firebaseArray(ref);
-
   }
   
   handleGetUserSuccess(response) {
